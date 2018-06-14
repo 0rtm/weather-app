@@ -31,7 +31,7 @@
         <!--Weather Info View Controller-->
         <scene sceneID="2V6-E4-WgF">
             <objects>
-                <viewController id="fMm-fs-KKn" customClass="WeatherInfoViewController" customModule="weather_demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weatherInfoVC" id="fMm-fs-KKn" customClass="WeatherInfoViewController" customModule="weather_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RFs-mY-3QS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
         <!--City Selection View Controller-->
         <scene sceneID="jVK-1g-9Nt">
             <objects>
-                <viewController id="Rpt-QM-dYz" customClass="CitySelectionViewController" customModule="weather_demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="citySelectionVC" id="Rpt-QM-dYz" customClass="CitySelectionViewController" customModule="weather_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tz1-ZD-ttL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +92,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Flr-VU-Lzr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PAA-Ty-PI6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="citySelectionNanVC" automaticallyAdjustsScrollViewInsets="NO" id="PAA-Ty-PI6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fgb-65-Cve">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
