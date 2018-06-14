@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CitiesListControllerDelegate {
+    
+}
+
 class CitiesListViewController: UIViewController {
 
     override func viewDidLoad() {
