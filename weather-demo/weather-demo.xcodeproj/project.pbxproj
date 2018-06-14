@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AC18A61020D1EAAC00EEBD89 /* CitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18A60F20D1EAAC00EEBD89 /* CitiesCoordinator.swift */; };
+		AC18A61720D1EC3300EEBD89 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61320D1EC3300EEBD89 /* RxBlocking.framework */; };
+		AC18A61820D1EC3300EEBD89 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61420D1EC3300EEBD89 /* RxTest.framework */; };
+		AC18A61920D1EC3300EEBD89 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61520D1EC3300EEBD89 /* RxSwift.framework */; };
+		AC18A61A20D1EC3300EEBD89 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */; };
 		ACCD863120D15B68005C30C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD863020D15B68005C30C4 /* AppDelegate.swift */; };
 		ACCD863620D15B68005C30C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCD863420D15B68005C30C4 /* Main.storyboard */; };
 		ACCD863920D15B68005C30C4 /* weather_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACCD863720D15B68005C30C4 /* weather_demo.xcdatamodeld */; };
@@ -38,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		AC18A60F20D1EAAC00EEBD89 /* CitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCoordinator.swift; sourceTree = "<group>"; };
+		AC18A61320D1EC3300EEBD89 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = SOURCE_ROOT; };
+		AC18A61420D1EC3300EEBD89 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = SOURCE_ROOT; };
+		AC18A61520D1EC3300EEBD89 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 		ACCD862D20D15B68005C30C4 /* weather-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weather-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCD863020D15B68005C30C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACCD863520D15B68005C30C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC18A61A20D1EC3300EEBD89 /* RxCocoa.framework in Frameworks */,
+				AC18A61820D1EC3300EEBD89 /* RxTest.framework in Frameworks */,
+				AC18A61720D1EC3300EEBD89 /* RxBlocking.framework in Frameworks */,
+				AC18A61920D1EC3300EEBD89 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +101,17 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		AC18A61220D1EC2200EEBD89 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				AC18A61320D1EC3300EEBD89 /* RxBlocking.framework */,
+				AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */,
+				AC18A61520D1EC3300EEBD89 /* RxSwift.framework */,
+				AC18A61420D1EC3300EEBD89 /* RxTest.framework */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		ACCD862420D15B68005C30C4 = {
 			isa = PBXGroup;
 			children = (
@@ -112,9 +135,10 @@
 		ACCD862F20D15B68005C30C4 /* weather-demo */ = {
 			isa = PBXGroup;
 			children = (
+				AC18A61220D1EC2200EEBD89 /* Dependencies */,
 				ACD49E3420D1D4E4000C853E /* Controllers */,
-				ACCD863020D15B68005C30C4 /* AppDelegate.swift */,
 				AC18A60E20D1EA9800EEBD89 /* Coordinator */,
+				ACCD863020D15B68005C30C4 /* AppDelegate.swift */,
 				ACCD863420D15B68005C30C4 /* Main.storyboard */,
 				ACCD863C20D15B69005C30C4 /* LaunchScreen.storyboard */,
 				ACCD863F20D15B69005C30C4 /* Info.plist */,
@@ -168,6 +192,7 @@
 				ACCD862920D15B68005C30C4 /* Sources */,
 				ACCD862A20D15B68005C30C4 /* Frameworks */,
 				ACCD862B20D15B68005C30C4 /* Resources */,
+				AC18A61120D1EB4700EEBD89 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -283,6 +308,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AC18A61120D1EB4700EEBD89 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ACCD862920D15B68005C30C4 /* Sources */ = {
@@ -468,6 +513,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 768KTYFHEL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "weather-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,6 +535,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 768KTYFHEL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "weather-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
