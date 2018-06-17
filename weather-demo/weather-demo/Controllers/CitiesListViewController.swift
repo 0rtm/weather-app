@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import CoreData
 
 protocol CitiesListControllerDelegate: class {
     func addCity()
+    func selected(city: City)
 }
 
 class CitiesListViewController: UIViewController {
@@ -21,12 +24,23 @@ class CitiesListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    fileprivate let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // TODO: move to view model
         tableView.delegate = self
         tableView.dataSource = self
+
+        tableView.rx.itemSelected.asObservable()
+            .subscribe(onNext: {[weak self] indexPath in
+                    guard let city = self?.cities[indexPath.row] else {
+                        return
+                    }
+                    self?.delegate?.selected(city: city)
+                }
+            ).disposed(by: disposeBag)
 
 
         let request = NSFetchRequest<City>(entityName: "City")

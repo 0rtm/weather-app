@@ -32,10 +32,6 @@ class CitiesListCoordinator {
         citiesList.delegate = self
     }
 
-//    fileprivate lazy var citiesListController: CitiesListViewController = {
-//        return citiesNavigation.viewControllers.first! as! CitiesListViewController
-//    }()
-
     fileprivate lazy var citySelectionController: UINavigationController = {
         let navVC = storyboard.instantiateViewController(withIdentifier: "citySelectionNanVC") as! UINavigationController
         navVC.title = "Selection"
@@ -45,9 +41,27 @@ class CitiesListCoordinator {
 
         return navVC
     }()
+
+    fileprivate lazy var forecastController: ForecastViewController = {
+        let forecastVC = storyboard.instantiateViewController(withIdentifier: "forecastVC") as! ForecastViewController
+        return forecastVC
+    } ()
 }
 
 extension CitiesListCoordinator: CitiesListControllerDelegate {
+
+    func selected(city: City) {
+        showForcastController(for: city)
+    }
+
+    fileprivate func showForcastController(for city: City) {
+
+        let forecastVC = forecastController
+        let forecastViewModel = ForecastViewModel(city: city)
+        forecastVC.viewModel = forecastViewModel
+
+        citiesNavigation.pushViewController(forecastVC, animated: true)
+    }
 
     func addCity() {
         citiesNavigation.present(citySelectionController, animated: true, completion: nil)

@@ -11,7 +11,9 @@
 		AC18A61920D1EC3300EEBD89 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61520D1EC3300EEBD89 /* RxSwift.framework */; };
 		AC18A61A20D1EC3300EEBD89 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */; };
 		AC34218A20D3113E00ED98EB /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34218920D3113E00ED98EB /* CitySelectionViewController.swift */; };
-		AC34218C20D311E700ED98EB /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34218B20D311E700ED98EB /* WeatherInfoViewController.swift */; };
+		ACB2514420D6E4BD003B2E14 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2514320D6E4BD003B2E14 /* ForecastViewController.swift */; };
+		ACB2514620D6E5A3003B2E14 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2514520D6E5A3003B2E14 /* ForecastViewModel.swift */; };
+		ACB2514820D6E807003B2E14 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB2514720D6E806003B2E14 /* Alamofire.framework */; };
 		ACCD863120D15B68005C30C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD863020D15B68005C30C4 /* AppDelegate.swift */; };
 		ACCD863620D15B68005C30C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCD863420D15B68005C30C4 /* Main.storyboard */; };
 		ACCD863920D15B68005C30C4 /* weather_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACCD863720D15B68005C30C4 /* weather_demo.xcdatamodeld */; };
@@ -48,7 +50,9 @@
 		AC18A61520D1EC3300EEBD89 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 		AC34218920D3113E00ED98EB /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
-		AC34218B20D311E700ED98EB /* WeatherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewController.swift; sourceTree = "<group>"; };
+		ACB2514320D6E4BD003B2E14 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		ACB2514520D6E5A3003B2E14 /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
+		ACB2514720D6E806003B2E14 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
 		ACCD862D20D15B68005C30C4 /* weather-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weather-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCD863020D15B68005C30C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACCD863520D15B68005C30C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			files = (
 				AC18A61A20D1EC3300EEBD89 /* RxCocoa.framework in Frameworks */,
 				AC18A61920D1EC3300EEBD89 /* RxSwift.framework in Frameworks */,
+				ACB2514820D6E807003B2E14 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,7 @@
 		AC18A61220D1EC2200EEBD89 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				ACB2514720D6E806003B2E14 /* Alamofire.framework */,
 				AC18A61320D1EC3300EEBD89 /* RxBlocking.framework */,
 				AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */,
 				AC18A61520D1EC3300EEBD89 /* RxSwift.framework */,
@@ -173,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				ACCEAD0920D5E5DC0078074B /* CitySelectionViewModel.swift */,
+				ACB2514520D6E5A3003B2E14 /* ForecastViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -190,7 +197,7 @@
 			children = (
 				ACD49E3220D1D4DE000C853E /* CitiesListViewController.swift */,
 				AC34218920D3113E00ED98EB /* CitySelectionViewController.swift */,
-				AC34218B20D311E700ED98EB /* WeatherInfoViewController.swift */,
+				ACB2514320D6E4BD003B2E14 /* ForecastViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,10 +338,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -347,10 +356,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB2514620D6E5A3003B2E14 /* ForecastViewModel.swift in Sources */,
 				ACD49E3120D1D469000C853E /* Coordinator.swift in Sources */,
 				ACD49E3320D1D4DE000C853E /* CitiesListViewController.swift in Sources */,
+				ACB2514420D6E4BD003B2E14 /* ForecastViewController.swift in Sources */,
 				ACCEAD0A20D5E5DC0078074B /* CitySelectionViewModel.swift in Sources */,
-				AC34218C20D311E700ED98EB /* WeatherInfoViewController.swift in Sources */,
 				AC18A61020D1EAAC00EEBD89 /* CitiesListCoordinator.swift in Sources */,
 				ACCD863920D15B68005C30C4 /* weather_demo.xcdatamodeld in Sources */,
 				AC34218A20D3113E00ED98EB /* CitySelectionViewController.swift in Sources */,
