@@ -77,13 +77,40 @@
                     <view key="view" contentMode="scaleToFill" id="RFs-mY-3QS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l2v-h6-8Gx">
+                                <rect key="frame" x="160.5" y="60" width="54" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E6-Qe-jIz">
+                                        <rect key="frame" x="11" y="0.0" width="32.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloudy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mk-QQ-UrU">
+                                        <rect key="frame" x="0.0" y="20.5" width="54" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l2v-h6-8Gx" firstAttribute="centerX" secondItem="LIp-ki-ZOX" secondAttribute="centerX" id="NHf-8l-Cyv"/>
+                            <constraint firstItem="l2v-h6-8Gx" firstAttribute="top" secondItem="LIp-ki-ZOX" secondAttribute="top" constant="40" id="U5k-ab-fWJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LIp-ki-ZOX"/>
                     </view>
+                    <connections>
+                        <outlet property="conditionLabel" destination="3mk-QQ-UrU" id="MvN-g3-v39"/>
+                        <outlet property="tempLabel" destination="3E6-Qe-jIz" id="bEI-ko-op2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtu-Qm-U9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1569" y="-565"/>
+            <point key="canvasLocation" x="1568.8" y="-565.36731634182911"/>
         </scene>
         <!--City Selection View Controller-->
         <scene sceneID="jVK-1g-9Nt">

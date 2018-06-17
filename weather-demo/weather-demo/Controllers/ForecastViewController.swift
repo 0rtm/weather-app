@@ -17,6 +17,9 @@ class ForecastViewController: UIViewController {
 
     fileprivate let disposeBag = DisposeBag()
 
+    @IBOutlet fileprivate weak var tempLabel: UILabel!
+    @IBOutlet fileprivate weak var conditionLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.navigationTitle.bind(to: rx.title).disposed(by: disposeBag)
@@ -25,13 +28,7 @@ class ForecastViewController: UIViewController {
 
 
     func loadForecast () {
-        //let cityName = viewModel.ci
-        guard let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=toronto&apikey=9397aff5413f75e8c682ac94c9938a8e") else {
-            return
-        }
-        Alamofire.request(url).responseJSON {[weak self] (response) in
-            print(response)
-        }
+        viewModel?.load()
     }
 
 }

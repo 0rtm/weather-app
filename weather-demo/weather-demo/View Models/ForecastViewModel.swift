@@ -11,15 +11,18 @@ import RxSwift
 
 class ForecastViewModel {
 
-    fileprivate let city: City
+    fileprivate let forecast: Forecast
 
     var navigationTitle: Observable<String> {
-        return Observable.just(city.name ?? "No name")
+        return Observable.just(forecast.city.name ?? "No name")
     }
 
+    init(forecast: Forecast) {
+        self.forecast = forecast
+    }
 
-    init(city: City) {
-        self.city = city
+    func load() {
+        forecast.loadForecast()
     }
 
 }
