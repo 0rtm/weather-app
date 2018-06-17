@@ -11,11 +11,11 @@ import UIKit
 
 final class Coordinator {
 
-    fileprivate let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    fileprivate let citiesCoordinator: CitiesListCoordinator
 
     fileprivate lazy var tabbarController: UITabBarController = {
         let tabbar = UITabBarController()
-        tabbar.viewControllers = [citiesNavigation]
+        tabbar.viewControllers = [citiesCoordinator.firstController]
         return tabbar
     }()
 
@@ -23,18 +23,8 @@ final class Coordinator {
         return tabbarController
     }()
 
-    fileprivate lazy var citiesNavigation: UINavigationController = {
-        let navVC = storyboard.instantiateViewController(withIdentifier: "citiesListNavitaionController") as! UINavigationController
-        navVC.title = "Cities"
-        return navVC
-    }()
-
-    fileprivate lazy var citiesListController: UIViewController = {
-        return citiesNavigation.viewControllers.first!
-    }()
-
     init() {
-
+        self.citiesCoordinator = CitiesListCoordinator()
     }
 
 }

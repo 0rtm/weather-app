@@ -8,28 +8,44 @@
 
 import UIKit
 
+protocol CitySelectionDelegate: class {
+    // TODO: change to city object
+    func selected(city: String?)
+}
+
 class CitySelectionViewController: UIViewController {
+
+    weak var delegate: CitySelectionDelegate? = nil
+
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+
+    fileprivate let viewModel = CitySelectionViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupSearch()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func done(_ sender: Any) {
+        viewModel.selectedCity = "London"
+        viewModel.done()
+        delegate?.selected(city: viewModel.selectedCity)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    fileprivate func setupSearch() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Seach city"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
-    */
+
+}
+
+extension CitySelectionViewController: UISearchResultsUpdating {
+
+    func updateSearchResults(for searchController: UISearchController) {
+        viewModel.selectedCity = searchController.searchBar.text
+    }
 
 }
