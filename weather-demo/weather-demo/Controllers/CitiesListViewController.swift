@@ -35,6 +35,9 @@ class CitiesListViewController: UIViewController {
 
         tableView.rx.itemSelected.asObservable()
             .subscribe(onNext: {[weak self] indexPath in
+
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+
                     guard let city = self?.cities[indexPath.row] else {
                         return
                     }
