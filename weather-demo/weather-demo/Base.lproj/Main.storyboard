@@ -135,6 +135,11 @@
                         <viewLayoutGuide key="safeArea" id="QB0-mQ-kBJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="6ma-OX-qqw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tka-h1-CJk">
+                            <connections>
+                                <action selector="cancel:" destination="Rpt-QM-dYz" id="Hf7-bY-MIN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="5ee-4B-H2K">
                             <connections>
                                 <action selector="done:" destination="Rpt-QM-dYz" id="eao-ni-X7X"/>

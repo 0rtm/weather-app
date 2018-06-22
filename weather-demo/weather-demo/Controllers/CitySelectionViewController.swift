@@ -32,6 +32,10 @@ class CitySelectionViewController: UIViewController {
         delegate?.selected(city: viewModel.selectedCity)
     }
 
+    @IBAction func cancel(_ sender: Any) {
+        delegate?.selected(city: nil)
+    }
+    
     fileprivate func setupSearch() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
