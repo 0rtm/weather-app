@@ -13,6 +13,9 @@ class CitySelectionViewModel {
     // When we will have a list of cities
     // make table view and so on
 
+    let cities = ["Toronto", "Moscow", "London"]
+
+
     var selectedCity: String?
 
     func done() {

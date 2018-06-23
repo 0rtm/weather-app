@@ -17,17 +17,13 @@ class CitySelectionViewController: UIViewController {
 
     weak var delegate: CitySelectionDelegate? = nil
 
+    @IBOutlet fileprivate weak var tableView: UITableView!
+
     fileprivate let searchController = UISearchController(searchResultsController: nil)
 
     fileprivate let viewModel = CitySelectionViewModel()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupSearch()
-    }
-
     @IBAction func done(_ sender: Any) {
-        viewModel.selectedCity = "London"
         viewModel.done()
         delegate?.selected(city: viewModel.selectedCity)
     }
@@ -35,7 +31,18 @@ class CitySelectionViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         delegate?.selected(city: nil)
     }
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+        setupSearch()
+    }
+
+    fileprivate func setupTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
     fileprivate func setupSearch() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -52,4 +59,30 @@ extension CitySelectionViewController: UISearchResultsUpdating {
         viewModel.selectedCity = searchController.searchBar.text
     }
 
+}
+
+// TODO make it using rx
+
+extension CitySelectionViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.cities.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath)
+
+        cell.textLabel?.text = viewModel.cities[indexPath.row]
+
+        return cell
+    }
+
+}
+
+extension CitySelectionViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedCity = viewModel.cities[indexPath.row]
+        done(self)
+    }
 }

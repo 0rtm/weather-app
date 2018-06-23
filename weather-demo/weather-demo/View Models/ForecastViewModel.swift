@@ -14,11 +14,16 @@ class ForecastViewModel {
     fileprivate let forecast: Forecast
 
     var navigationTitle: Observable<String> {
-        return Observable.just(forecast.city.name ?? "No name")
+        return Observable.just(forecast.city.name)
     }
 
-    init(forecast: Forecast) {
-        self.forecast = forecast
+    // TODO: value conversion
+    var currentTemp: Observable<String> {
+        return forecast.currentTemperature.asObservable()
+    }
+
+    init(forecast aForecast: Forecast) {
+        forecast = aForecast
     }
 
     func load() {

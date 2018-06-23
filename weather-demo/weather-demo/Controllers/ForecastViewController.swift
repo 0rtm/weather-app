@@ -9,7 +9,6 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import Alamofire
 
 class ForecastViewController: UIViewController {
 
@@ -23,9 +22,9 @@ class ForecastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.navigationTitle.bind(to: rx.title).disposed(by: disposeBag)
+        viewModel?.currentTemp.bind(to: conditionLabel.rx.text).disposed(by: disposeBag)
         loadForecast()
     }
-
 
     func loadForecast () {
         viewModel?.load()

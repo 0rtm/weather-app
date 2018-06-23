@@ -32,7 +32,7 @@ class CitiesListCoordinator {
         citiesList.delegate = self
     }
 
-    fileprivate lazy var citySelectionController: UINavigationController = {
+    fileprivate var citySelectionController: UINavigationController {
         let navVC = storyboard.instantiateViewController(withIdentifier: "citySelectionNanVC") as! UINavigationController
         navVC.title = "Selection"
 
@@ -40,12 +40,12 @@ class CitiesListCoordinator {
         selectionVC.delegate = self
 
         return navVC
-    }()
+    }
 
-    fileprivate lazy var forecastController: ForecastViewController = {
+    fileprivate var forecastController: ForecastViewController {
         let forecastVC = storyboard.instantiateViewController(withIdentifier: "forecastVC") as! ForecastViewController
         return forecastVC
-    } ()
+    }
 }
 
 extension CitiesListCoordinator: CitiesListControllerDelegate {
