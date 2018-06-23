@@ -26,6 +26,16 @@ class CitiesListViewController: UIViewController {
 
     fileprivate let disposeBag = DisposeBag()
 
+    fileprivate func updateCitiesList() {
+        let request = NSFetchRequest<City>(entityName: "City")
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let moc = appDelegate.persistentContainer.viewContext
+
+        cities = try! moc.fetch(request)
+        tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,27 +56,42 @@ class CitiesListViewController: UIViewController {
             ).disposed(by: disposeBag)
 
 
-        let request = NSFetchRequest<City>(entityName: "City")
-
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let moc = appDelegate.persistentContainer.viewContext
-
-        cities = try! moc.fetch(request)
-        tableView.reloadData()
+        updateCitiesList()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateCitiesList()
     }
 
     @IBAction fileprivate func add(_ sender: Any) {
         self.delegate?.addCity()
     }
-    
+
+    // TODO: move to view model
+    fileprivate func delete(city: City?) {
+        guard let _city = city else { return }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let moc = appDelegate.persistentContainer.viewContext
+        moc.delete(_city)
+        updateCitiesList()
+    }
 }
 
 extension CitiesListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {[weak self] (action, view, success) in
+            self?.delete(city: self?.cities[indexPath.row])
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 
 }
 
