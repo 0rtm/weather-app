@@ -75,6 +75,12 @@ class CitiesListViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let moc = appDelegate.persistentContainer.viewContext
         moc.delete(_city)
+
+        do {
+            try moc.save()
+        } catch {
+        }
+
         updateCitiesList()
     }
 }
