@@ -17,6 +17,6 @@ extension City {
         return NSFetchRequest<City>(entityName: "City")
     }
 
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
 
 }
