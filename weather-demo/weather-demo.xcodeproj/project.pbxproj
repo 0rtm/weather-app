@@ -27,7 +27,6 @@
 		ACCD863920D15B68005C30C4 /* weather_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACCD863720D15B68005C30C4 /* weather_demo.xcdatamodeld */; };
 		ACCD863B20D15B69005C30C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACCD863A20D15B69005C30C4 /* Assets.xcassets */; };
 		ACCD863E20D15B69005C30C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCD863C20D15B69005C30C4 /* LaunchScreen.storyboard */; };
-		ACCD864920D15B69005C30C4 /* weather_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD864820D15B69005C30C4 /* weather_demoTests.swift */; };
 		ACCD865420D15B69005C30C4 /* weather_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD865320D15B69005C30C4 /* weather_demoUITests.swift */; };
 		ACCEAD0A20D5E5DC0078074B /* CitySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCEAD0920D5E5DC0078074B /* CitySelectionViewModel.swift */; };
 		ACD49E3120D1D469000C853E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD49E3020D1D469000C853E /* Coordinator.swift */; };
@@ -76,7 +75,6 @@
 		ACCD863D20D15B69005C30C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACCD863F20D15B69005C30C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACCD864420D15B69005C30C4 /* weather-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "weather-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACCD864820D15B69005C30C4 /* weather_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather_demoTests.swift; sourceTree = "<group>"; };
 		ACCD864A20D15B69005C30C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACCD864F20D15B69005C30C4 /* weather-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "weather-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCD865320D15B69005C30C4 /* weather_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather_demoUITests.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				ACCD864A20D15B69005C30C4 /* Info.plist */,
-				ACCD864820D15B69005C30C4 /* weather_demoTests.swift */,
 				AC65327620E032B900F7A393 /* RouteTests.swift */,
 			);
 			path = "weather-demoTests";
@@ -425,7 +422,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACCD864920D15B69005C30C4 /* weather_demoTests.swift in Sources */,
 				AC65327720E032B900F7A393 /* RouteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

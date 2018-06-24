@@ -45,6 +45,10 @@ class RouteTests: XCTestCase {
         let properties = route.requestProperties
 
         XCTAssertEqual(properties.method, .get)
+        XCTAssertEqual(properties.path, "/weather")
+
+        let query = ["q":_city.name]
+        XCTAssertEqual(properties.query, query)
     }
     
 }

@@ -38,13 +38,15 @@ struct APIService {
     }
 
     fileprivate func request<T>(requestProperties: RequestProperties, completion: @escaping (Error?, T?)->()) where T: Decodable {
-
-        // TODO: Move it out of here
         var mutableParam = requestProperties.query
         mutableParam["APPID"] = APIKey
         let url = serverURL.appendingPathComponent(requestProperties.path)
+        request(url: url, params: mutableParam, completion: completion)
+    }
 
-        Alamofire.request(url, parameters: mutableParam)
+    fileprivate func request<T>(url: URL, params: [String: Any], completion: @escaping (Error?, T?)->()) where T: Decodable {
+
+        Alamofire.request(url, parameters: params)
             .validate()
             .responseJSON {(response) in
 
