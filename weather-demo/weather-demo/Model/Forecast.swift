@@ -12,9 +12,10 @@ import RxSwift
 struct Forecast {
 
     let city: City
-    fileprivate let apiService: APIService
     let currentTemperature: Variable<Measurement<UnitTemperature>?>
     let condition: Variable<String?>
+
+    fileprivate let apiService: APIService
 
     init(city: City, apiService: APIService) {
         self.city = city
