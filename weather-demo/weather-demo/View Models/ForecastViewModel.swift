@@ -21,7 +21,8 @@ class ForecastViewModel {
     fileprivate var formatter: MeasurementFormatter {
         let f = MeasurementFormatter()
         f.unitStyle = .short
-        f.unitOptions = .providedUnit
+        f.unitOptions = [.temperatureWithoutUnit]
+
 
         let n = NumberFormatter()
         n.maximumFractionDigits = 0
