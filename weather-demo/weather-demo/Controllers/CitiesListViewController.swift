@@ -29,8 +29,7 @@ class CitiesListViewController: UIViewController {
     fileprivate func updateCitiesList() {
         let request = NSFetchRequest<City>(entityName: "City")
 
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let moc = appDelegate.persistentContainer.viewContext
+        let moc = AppEnvironment.current.persistentContainer.viewContext
 
         cities = try! moc.fetch(request)
         tableView.reloadData()
@@ -73,7 +72,7 @@ class CitiesListViewController: UIViewController {
     fileprivate func delete(city: City?) {
         guard let _city = city else { return }
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let moc = appDelegate.persistentContainer.viewContext
+        let moc = AppEnvironment.current.persistentContainer.viewContext
         moc.delete(_city)
 
         do {

@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-
+@objc (City)
 public class City: NSManagedObject {
 
 }
@@ -22,5 +22,14 @@ extension City {
     }
 
     @NSManaged public var name: String
+    @NSManaged public var currentWeather: Weather?
+
+}
+
+extension City {
+
+    func updateCurrentWeather() {
+        
+    }
 
 }

@@ -57,12 +57,7 @@ extension CitiesListCoordinator: CitiesListControllerDelegate {
     fileprivate func showForcastController(for city: City) {
 
         let forecastVC = forecastController
-
-        // TODO: move out of here
-        let url = URL(string: "https://api.openweathermap.org/data/2.5")!
-        let apiKey = "9397aff5413f75e8c682ac94c9938a8e"
-        let apiService = APIService(serverURL: url, APIKey: apiKey)
-
+        let apiService = AppEnvironment.current.apiService
         let forecast = Forecast(city: city, apiService: apiService)
         let forecastViewModel = ForecastViewModel(forecast: forecast)
         forecastVC.viewModel = forecastViewModel

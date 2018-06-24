@@ -26,7 +26,7 @@ class CitySelectionViewModel {
         }
 
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        let moc = delegate.persistentContainer.viewContext
+        let moc = AppEnvironment.current.persistentContainer.viewContext
 
 
         let city = City(context: moc)

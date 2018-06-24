@@ -31,6 +31,10 @@
 		ACD49E3120D1D469000C853E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD49E3020D1D469000C853E /* Coordinator.swift */; };
 		ACD49E3320D1D4DE000C853E /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD49E3220D1D4DE000C853E /* CitiesListViewController.swift */; };
 		ACD9D0FE20E04A7100BCC9EA /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D0FC20E04A7100BCC9EA /* Weather.swift */; };
+		ACD9D10420E05EE500BCC9EA /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10320E05EE500BCC9EA /* Environment.swift */; };
+		ACD9D10720E062EE00BCC9EA /* ConfigurableEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10620E062EE00BCC9EA /* ConfigurableEnvironment.swift */; };
+		ACD9D10920E0630C00BCC9EA /* DefaultEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10820E0630C00BCC9EA /* DefaultEnvironment.swift */; };
+		ACD9D10B20E0635700BCC9EA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10A20E0635700BCC9EA /* AppEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,10 @@
 		ACD49E3020D1D469000C853E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ACD49E3220D1D4DE000C853E /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
 		ACD9D0FC20E04A7100BCC9EA /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		ACD9D10320E05EE500BCC9EA /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		ACD9D10620E062EE00BCC9EA /* ConfigurableEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableEnvironment.swift; sourceTree = "<group>"; };
+		ACD9D10820E0630C00BCC9EA /* DefaultEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEnvironment.swift; sourceTree = "<group>"; };
+		ACD9D10A20E0635700BCC9EA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +200,7 @@
 				ACB2514920D6F89F003B2E14 /* Model */,
 				AC18A60E20D1EA9800EEBD89 /* Coordinator */,
 				ACCD863020D15B68005C30C4 /* AppDelegate.swift */,
+				ACD9D10520E062CC00BCC9EA /* Environment */,
 				ACCD863420D15B68005C30C4 /* Main.storyboard */,
 				ACCD863C20D15B69005C30C4 /* LaunchScreen.storyboard */,
 				ACCD863F20D15B69005C30C4 /* Info.plist */,
@@ -244,6 +253,17 @@
 				ACB2514320D6E4BD003B2E14 /* ForecastViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ACD9D10520E062CC00BCC9EA /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9D10320E05EE500BCC9EA /* Environment.swift */,
+				ACD9D10A20E0635700BCC9EA /* AppEnvironment.swift */,
+				ACD9D10820E0630C00BCC9EA /* DefaultEnvironment.swift */,
+				ACD9D10620E062EE00BCC9EA /* ConfigurableEnvironment.swift */,
+			);
+			path = Environment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,8 +423,11 @@
 				ACB2514620D6E5A3003B2E14 /* ForecastViewModel.swift in Sources */,
 				AC74525D20D7199200A070FE /* APIService.swift in Sources */,
 				ACD49E3120D1D469000C853E /* Coordinator.swift in Sources */,
+				ACD9D10720E062EE00BCC9EA /* ConfigurableEnvironment.swift in Sources */,
 				AC74525120D718FA00A070FE /* Route.swift in Sources */,
 				ACB2514B20D6F8CF003B2E14 /* WeatherDTO.swift in Sources */,
+				ACD9D10420E05EE500BCC9EA /* Environment.swift in Sources */,
+				ACD9D10B20E0635700BCC9EA /* AppEnvironment.swift in Sources */,
 				ACD49E3320D1D4DE000C853E /* CitiesListViewController.swift in Sources */,
 				ACB2514420D6E4BD003B2E14 /* ForecastViewController.swift in Sources */,
 				AC74525F20D722B300A070FE /* Forecast.swift in Sources */,
@@ -415,6 +438,7 @@
 				AC34218A20D3113E00ED98EB /* CitySelectionViewController.swift in Sources */,
 				ACD9D0FE20E04A7100BCC9EA /* Weather.swift in Sources */,
 				ACCD863120D15B68005C30C4 /* AppDelegate.swift in Sources */,
+				ACD9D10920E0630C00BCC9EA /* DefaultEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
