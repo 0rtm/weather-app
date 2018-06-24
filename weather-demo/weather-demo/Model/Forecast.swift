@@ -13,21 +13,23 @@ struct Forecast {
 
     let city: City
     fileprivate let apiService: APIService
-    var currentTemperature: Variable<String>
+    let currentTemperature: Variable<Measurement<UnitTemperature>?>
+    let condition: Variable<String?>
 
     init(city: City, apiService: APIService) {
         self.city = city
         self.apiService = apiService
-        self.currentTemperature = Variable("0")
+        self.currentTemperature = Variable(nil)
+        self.condition = Variable(nil)
     }
 
     func loadForecast() {
         apiService.fetchForcast(city: city) { (error, forecast) in
-            guard error == nil else {
+            guard error == nil, let measurement = forecast?.main.temperatureMeasurment else {
                 return
             }
-
-            self.currentTemperature.value = "\(forecast?.main.temperatureInKelvins ?? 0)"
+            self.currentTemperature.value = measurement
+            self.condition.value = forecast?.weather.first?.description
             print(forecast ?? "Nothing")
         }
     }

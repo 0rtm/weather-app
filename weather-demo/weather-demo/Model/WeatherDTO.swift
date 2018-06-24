@@ -23,7 +23,12 @@ struct WeatherDTO: Decodable {
 
 // TODO: move to separate files
 struct MainDTO: Decodable {
+
     let temperatureInKelvins: Double
+
+    var temperatureMeasurment: Measurement<UnitTemperature> {
+        return Measurement(value: temperatureInKelvins, unit: UnitTemperature.kelvin)
+    }
 
     enum CodingKeys: String, CodingKey {
         case temperatureInKelvins = "temp"

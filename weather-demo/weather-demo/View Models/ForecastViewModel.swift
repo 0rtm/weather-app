@@ -17,9 +17,34 @@ class ForecastViewModel {
         return Observable.just(forecast.city.name)
     }
 
-    // TODO: value conversion
+    //TODO: selectable fromatter
+    fileprivate var formatter: MeasurementFormatter {
+        let f = MeasurementFormatter()
+        f.unitStyle = .short
+        f.unitOptions = .providedUnit
+
+        let n = NumberFormatter()
+        n.maximumFractionDigits = 0
+
+        f.numberFormatter = n
+        return f
+    }
+
     var currentTemp: Observable<String> {
-        return forecast.currentTemperature.asObservable()
+        return forecast.currentTemperature.asObservable().map {[weak self] temp in
+
+            // TODO: make configurable
+            guard let t = temp?.converted(to: .celsius) else {
+                return "N/A"
+            }
+            return self?.formatter.string(from: t) ?? "N/A"
+        }
+    }
+
+    var condition: Observable<String> {
+        return forecast.condition.asObservable().map { c in
+            return c ?? "N/A"
+        }
     }
 
     init(forecast aForecast: Forecast) {

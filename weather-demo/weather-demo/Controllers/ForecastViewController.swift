@@ -22,7 +22,8 @@ class ForecastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.navigationTitle.bind(to: rx.title).disposed(by: disposeBag)
-        viewModel?.currentTemp.bind(to: conditionLabel.rx.text).disposed(by: disposeBag)
+        viewModel?.currentTemp.bind(to: tempLabel.rx.text).disposed(by: disposeBag)
+        viewModel?.condition.bind(to: conditionLabel.rx.text).disposed(by: disposeBag)
         loadForecast()
     }
 
