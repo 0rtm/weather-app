@@ -9,7 +9,7 @@
 import XCTest
 import CoreData
 
-@testable import weather
+@testable import weatherApp
 
 class RouteTests: XCTestCase {
 
