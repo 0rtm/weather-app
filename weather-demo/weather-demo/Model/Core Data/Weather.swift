@@ -1,5 +1,5 @@
 //
-//  Weather+CoreDataProperties.swift
+//  Weather.swift
 //  weather
 //
 //  Created by Artem Tselikov on 2018-06-24.
@@ -9,6 +9,10 @@
 
 import Foundation
 import CoreData
+
+public class Weather: NSManagedObject {
+
+}
 
 
 extension Weather {

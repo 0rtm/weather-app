@@ -1,5 +1,5 @@
 //
-//  City+CoreDataProperties.swift
+//  City.swift
 //  weather-demo
 //
 //  Created by Artem Tselikov on 2018-06-22.
@@ -10,6 +10,10 @@
 import Foundation
 import CoreData
 
+
+public class City: NSManagedObject {
+
+}
 
 extension City {
 
