@@ -29,7 +29,28 @@ extension City {
 extension City {
 
     func updateCurrentWeather() {
-        
+
+        AppEnvironment.current.apiService.fetchForcast(city: self) {[weak self] (error, forecast) in
+
+            guard error == nil, let _forecast = forecast else {
+                return
+            }
+
+            let moc = AppEnvironment.current.persistentContainer.viewContext
+
+            let newTemp = _forecast.main.temperatureInKelvins
+
+            if let currentW = self?.currentWeather {
+                currentW.temperatureInKelvins = newTemp
+            } else {
+                let w = Weather(context: moc)
+                w.temperatureInKelvins = newTemp
+                self?.currentWeather = w
+            }
+
+            AppEnvironment.current.saveContext()
+        }
+
     }
 
 }

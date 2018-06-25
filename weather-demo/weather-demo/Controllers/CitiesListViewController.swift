@@ -32,6 +32,11 @@ class CitiesListViewController: UIViewController {
         let moc = AppEnvironment.current.persistentContainer.viewContext
 
         cities = try! moc.fetch(request)
+
+        for city in cities {
+            city.updateCurrentWeather()
+        }
+
         tableView.reloadData()
     }
 
@@ -109,6 +114,10 @@ extension CitiesListViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath) as! UITableViewCell
         cell.textLabel?.text = cities[indexPath.row].name
+
+        let temp = cities[indexPath.row].currentWeather?.temperatureInKelvins
+
+        cell.detailTextLabel?.text = "temp: \(temp ?? 0)"
         return cell
 
     }
