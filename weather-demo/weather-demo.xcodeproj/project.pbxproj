@@ -35,6 +35,7 @@
 		ACD9D10720E062EE00BCC9EA /* ConfigurableEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10620E062EE00BCC9EA /* ConfigurableEnvironment.swift */; };
 		ACD9D10920E0630C00BCC9EA /* DefaultEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10820E0630C00BCC9EA /* DefaultEnvironment.swift */; };
 		ACD9D10B20E0635700BCC9EA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10A20E0635700BCC9EA /* AppEnvironment.swift */; };
+		ACD9D10D20E06BFB00BCC9EA /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10C20E06BFB00BCC9EA /* CitiesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		ACD9D10620E062EE00BCC9EA /* ConfigurableEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableEnvironment.swift; sourceTree = "<group>"; };
 		ACD9D10820E0630C00BCC9EA /* DefaultEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEnvironment.swift; sourceTree = "<group>"; };
 		ACD9D10A20E0635700BCC9EA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		ACD9D10C20E06BFB00BCC9EA /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 		ACCEAD0820D5E5B80078074B /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				ACD9D10C20E06BFB00BCC9EA /* CitiesViewModel.swift */,
 				ACCEAD0920D5E5DC0078074B /* CitySelectionViewModel.swift */,
 				ACB2514520D6E5A3003B2E14 /* ForecastViewModel.swift */,
 			);
@@ -429,6 +432,7 @@
 				ACD9D10420E05EE500BCC9EA /* Environment.swift in Sources */,
 				ACD9D10B20E0635700BCC9EA /* AppEnvironment.swift in Sources */,
 				ACD49E3320D1D4DE000C853E /* CitiesViewController.swift in Sources */,
+				ACD9D10D20E06BFB00BCC9EA /* CitiesViewModel.swift in Sources */,
 				ACB2514420D6E4BD003B2E14 /* ForecastViewController.swift in Sources */,
 				AC74525F20D722B300A070FE /* Forecast.swift in Sources */,
 				ACCEAD0A20D5E5DC0078074B /* CitySelectionViewModel.swift in Sources */,

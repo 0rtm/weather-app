@@ -24,6 +24,9 @@ class CitiesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    let viewModel = CitiesViewModel()
+    var fr: NSFetchedResultsController<City>?
+
     fileprivate let disposeBag = DisposeBag()
 
     fileprivate func updateCitiesList() {
@@ -47,12 +50,28 @@ class CitiesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
+
+            let r =  NSFetchRequest<City>(entityName: "City")
+            r.fetchBatchSize = 20
+            r.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+
+
+
+        let moc = AppEnvironment.current.persistentContainer.viewContext
+
+        fr = NSFetchedResultsController(fetchRequest: r, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+
+
+        fr?.delegate = self
+
+
+
         tableView.rx.itemSelected.asObservable()
             .subscribe(onNext: {[weak self] indexPath in
 
                 self?.tableView.deselectRow(at: indexPath, animated: true)
 
-                    guard let city = self?.cities[indexPath.row] else {
+                    guard let city = self?.fr?.object(at: indexPath) else {
                         return
                     }
                     self?.delegate?.selected(city: city)
@@ -60,7 +79,12 @@ class CitiesViewController: UIViewController {
             ).disposed(by: disposeBag)
 
 
-        updateCitiesList()
+            try! fr?.performFetch()
+
+
+
+        tableView.reloadData()
+        //updateCitiesList()
 
     }
 
@@ -108,18 +132,42 @@ extension CitiesViewController: UITableViewDelegate {
 extension CitiesViewController: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+
+        guard let section = fr?.sections?[section] else {
+            return 0
+        }
+
+        return section.numberOfObjects
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath) as! UITableViewCell
-        cell.textLabel?.text = cities[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
 
-        let temp = cities[indexPath.row].currentWeather?.temperatureInKelvins
+        let c = (fr?.object(at: indexPath))!
+
+        cell.textLabel?.text = c.name
+
+        let temp = c.currentWeather?.temperatureInKelvins
 
         cell.detailTextLabel?.text = "temp: \(temp ?? 0)"
         return cell
 
+    }
+
+}
+
+extension CitiesViewController: NSFetchedResultsControllerDelegate {
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        print("wtf")
+    }
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("will")
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("did")
     }
 
 }
