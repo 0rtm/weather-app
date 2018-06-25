@@ -24,11 +24,11 @@ class CitiesListCoordinator {
         citiesNavigation = storyboard.instantiateViewController(withIdentifier: "citiesListNavitaionController") as! UINavigationController
         citiesNavigation.title = "Cities"
 
-        configureCitiesListController()
+        configureCitiesController()
     }
 
-    fileprivate func configureCitiesListController(){
-        let citiesList = citiesNavigation.viewControllers.first! as! CitiesListViewController
+    fileprivate func configureCitiesController(){
+        let citiesList = citiesNavigation.viewControllers.first! as! CitiesViewController
         citiesList.delegate = self
     }
 
@@ -48,7 +48,7 @@ class CitiesListCoordinator {
     }
 }
 
-extension CitiesListCoordinator: CitiesListControllerDelegate {
+extension CitiesListCoordinator: CitiesControllerDelegate {
 
     func selected(city: City) {
         showForcastController(for: city)

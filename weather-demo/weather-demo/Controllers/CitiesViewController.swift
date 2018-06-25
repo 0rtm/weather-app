@@ -1,5 +1,5 @@
 //
-//  CitiesListViewController.swift
+//  CitiesViewController.swift
 //  weather-demo
 //
 //  Created by Artem Tselikov on 2018-06-13.
@@ -11,14 +11,14 @@ import RxSwift
 import RxCocoa
 import CoreData
 
-protocol CitiesListControllerDelegate: class {
+protocol CitiesControllerDelegate: class {
     func addCity()
     func selected(city: City)
 }
 
-class CitiesListViewController: UIViewController {
+class CitiesViewController: UIViewController {
 
-    weak var delegate: CitiesListControllerDelegate? = nil
+    weak var delegate: CitiesControllerDelegate? = nil
 
     fileprivate var cities: [City] = []
 
@@ -89,7 +89,7 @@ class CitiesListViewController: UIViewController {
     }
 }
 
-extension CitiesListViewController: UITableViewDelegate {
+extension CitiesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -105,7 +105,7 @@ extension CitiesListViewController: UITableViewDelegate {
 
 }
 
-extension CitiesListViewController: UITableViewDataSource {
+extension CitiesViewController: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
