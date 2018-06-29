@@ -119,6 +119,22 @@
             </objects>
             <point key="canvasLocation" x="1568.8" y="-565.36731634182911"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="4e0-ui-ocn">
+            <objects>
+                <viewController storyboardIdentifier="settingsVC" id="26R-Xs-BAH" customClass="SettingsViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7AS-U9-aEs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eQU-qD-2Fb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="42i-Db-t28"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aD2-N8-alg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2386" y="-565"/>
+        </scene>
         <!--City Selection View Controller-->
         <scene sceneID="jVK-1g-9Nt">
             <objects>
@@ -128,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-OW-ccY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectionCell" textLabel="RhF-iq-ngS" style="IBUITableViewCellStyleDefault" id="xMc-J9-2er">
@@ -161,16 +177,8 @@
                         <viewLayoutGuide key="safeArea" id="QB0-mQ-kBJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="6ma-OX-qqw">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tka-h1-CJk">
-                            <connections>
-                                <action selector="cancel:" destination="Rpt-QM-dYz" id="Hf7-bY-MIN"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5ee-4B-H2K">
-                            <connections>
-                                <action selector="done:" destination="Rpt-QM-dYz" id="eao-ni-X7X"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tka-h1-CJk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5ee-4B-H2K"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="DTY-OW-ccY" id="v6E-L7-Fao"/>
@@ -197,24 +205,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGX-JW-dSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.5999999999999996" y="-565.36731634182911"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Flr-VU-Lzr">
-            <objects>
-                <navigationController storyboardIdentifier="citySelectionNanVC" automaticallyAdjustsScrollViewInsets="NO" id="PAA-Ty-PI6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fgb-65-Cve">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Rpt-QM-dYz" kind="relationship" relationship="rootViewController" id="hlv-vo-NLI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kLY-6x-Acg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="766" y="-1289"/>
         </scene>
     </scenes>
 </document>

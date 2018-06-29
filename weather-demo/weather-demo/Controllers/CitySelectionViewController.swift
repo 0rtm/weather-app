@@ -23,19 +23,21 @@ class CitySelectionViewController: UIViewController {
 
     fileprivate let viewModel = CitySelectionViewModel()
 
-    @IBAction func done(_ sender: Any) {
-        viewModel.done()
-        delegate?.selected(city: viewModel.selectedCity)
-    }
-
-    @IBAction func cancel(_ sender: Any) {
-        delegate?.selected(city: nil)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
+
         setupTableView()
         setupSearch()
+    }
+
+    fileprivate func setupNavigationBar() {
+        self.title = "Selection"
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(done))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
+        self.navigationItem.rightBarButtonItem = doneButton
+        self.navigationItem.leftBarButtonItem = cancelButton
     }
 
     fileprivate func setupTableView(){
@@ -49,6 +51,17 @@ class CitySelectionViewController: UIViewController {
         searchController.searchBar.placeholder = "Seach city"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+
+    @objc
+    fileprivate func done() {
+        viewModel.done()
+        delegate?.selected(city: viewModel.selectedCity)
+    }
+
+    @objc
+    fileprivate func cancel() {
+        delegate?.selected(city: nil)
     }
 
 }
@@ -83,6 +96,6 @@ extension CitySelectionViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.selectedCity = viewModel.cities[indexPath.row]
-        done(self)
+        done()
     }
 }

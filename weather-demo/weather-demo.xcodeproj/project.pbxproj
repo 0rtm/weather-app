@@ -36,6 +36,7 @@
 		ACD9D10920E0630C00BCC9EA /* DefaultEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10820E0630C00BCC9EA /* DefaultEnvironment.swift */; };
 		ACD9D10B20E0635700BCC9EA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10A20E0635700BCC9EA /* AppEnvironment.swift */; };
 		ACD9D10D20E06BFB00BCC9EA /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D10C20E06BFB00BCC9EA /* CitiesViewModel.swift */; };
+		ACED799B20E6C3A3007111A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED799A20E6C3A3007111A1 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		ACD9D10820E0630C00BCC9EA /* DefaultEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEnvironment.swift; sourceTree = "<group>"; };
 		ACD9D10A20E0635700BCC9EA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		ACD9D10C20E06BFB00BCC9EA /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
+		ACED799A20E6C3A3007111A1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 				ACD49E3220D1D4DE000C853E /* CitiesViewController.swift */,
 				AC34218920D3113E00ED98EB /* CitySelectionViewController.swift */,
 				ACB2514320D6E4BD003B2E14 /* ForecastViewController.swift */,
+				ACED799A20E6C3A3007111A1 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				ACB2514620D6E5A3003B2E14 /* ForecastViewModel.swift in Sources */,
 				AC74525D20D7199200A070FE /* APIService.swift in Sources */,
+				ACED799B20E6C3A3007111A1 /* SettingsViewController.swift in Sources */,
 				ACD49E3120D1D469000C853E /* Coordinator.swift in Sources */,
 				ACD9D10720E062EE00BCC9EA /* ConfigurableEnvironment.swift in Sources */,
 				AC74525120D718FA00A070FE /* Route.swift in Sources */,
