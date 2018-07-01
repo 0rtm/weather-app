@@ -11,12 +11,16 @@
 		AC18A61920D1EC3300EEBD89 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61520D1EC3300EEBD89 /* RxSwift.framework */; };
 		AC18A61A20D1EC3300EEBD89 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */; };
 		AC34218A20D3113E00ED98EB /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34218920D3113E00ED98EB /* CitySelectionViewController.swift */; };
+		AC408F6420E8377100367702 /* SettingsSegmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC408F6220E8377100367702 /* SettingsSegmentTableViewCell.swift */; };
+		AC408F6520E8377100367702 /* SettingsSegmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC408F6320E8377100367702 /* SettingsSegmentTableViewCell.xib */; };
+		AC408F6720E83C9A00367702 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC408F6620E83C9A00367702 /* SettingsViewModel.swift */; };
 		AC4127B220E0399E000C6F24 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB2514720D6E806003B2E14 /* Alamofire.framework */; };
 		AC44D0C920DDB1EF0082B2B5 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC44D0C720DDB1EF0082B2B5 /* City.swift */; };
 		AC65327720E032B900F7A393 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65327620E032B900F7A393 /* RouteTests.swift */; };
 		AC74525120D718FA00A070FE /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74525020D718FA00A070FE /* Route.swift */; };
 		AC74525D20D7199200A070FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74525C20D7199200A070FE /* APIService.swift */; };
 		AC74525F20D722B300A070FE /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74525E20D722B300A070FE /* Forecast.swift */; };
+		ACACF83920E847F000960EE7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACF83820E847F000960EE7 /* Settings.swift */; };
 		ACB2514420D6E4BD003B2E14 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2514320D6E4BD003B2E14 /* ForecastViewController.swift */; };
 		ACB2514620D6E5A3003B2E14 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2514520D6E5A3003B2E14 /* ForecastViewModel.swift */; };
 		ACB2514820D6E807003B2E14 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB2514720D6E806003B2E14 /* Alamofire.framework */; };
@@ -63,11 +67,15 @@
 		AC18A61520D1EC3300EEBD89 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		AC18A61620D1EC3300EEBD89 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 		AC34218920D3113E00ED98EB /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
+		AC408F6220E8377100367702 /* SettingsSegmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSegmentTableViewCell.swift; sourceTree = "<group>"; };
+		AC408F6320E8377100367702 /* SettingsSegmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsSegmentTableViewCell.xib; sourceTree = "<group>"; };
+		AC408F6620E83C9A00367702 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AC44D0C720DDB1EF0082B2B5 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		AC65327620E032B900F7A393 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		AC74525020D718FA00A070FE /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		AC74525C20D7199200A070FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AC74525E20D722B300A070FE /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		ACACF83820E847F000960EE7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		ACB2514320D6E4BD003B2E14 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		ACB2514520D6E5A3003B2E14 /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		ACB2514720D6E806003B2E14 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
@@ -146,6 +154,23 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
+		AC408F6020E836DB00367702 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC408F6120E836F100367702 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC408F6120E836F100367702 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC408F6220E8377100367702 /* SettingsSegmentTableViewCell.swift */,
+				AC408F6320E8377100367702 /* SettingsSegmentTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		AC44D0CA20DDB2010082B2B5 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +195,7 @@
 				AC44D0CA20DDB2010082B2B5 /* Core Data */,
 				ACB2514A20D6F8CF003B2E14 /* WeatherDTO.swift */,
 				AC74525E20D722B300A070FE /* Forecast.swift */,
+				ACACF83820E847F000960EE7 /* Settings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +230,7 @@
 				ACB2514920D6F89F003B2E14 /* Model */,
 				AC18A60E20D1EA9800EEBD89 /* Coordinator */,
 				ACD9D10520E062CC00BCC9EA /* Environment */,
+				AC408F6020E836DB00367702 /* Views */,
 				ACCD863420D15B68005C30C4 /* Main.storyboard */,
 				ACCD863C20D15B69005C30C4 /* LaunchScreen.storyboard */,
 				ACCD863020D15B68005C30C4 /* AppDelegate.swift */,
@@ -238,6 +265,7 @@
 				ACD9D10C20E06BFB00BCC9EA /* CitiesViewModel.swift */,
 				ACCEAD0920D5E5DC0078074B /* CitySelectionViewModel.swift */,
 				ACB2514520D6E5A3003B2E14 /* ForecastViewModel.swift */,
+				AC408F6620E83C9A00367702 /* SettingsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -379,6 +407,7 @@
 			files = (
 				ACCD863E20D15B69005C30C4 /* LaunchScreen.storyboard in Resources */,
 				ACCD863B20D15B69005C30C4 /* Assets.xcassets in Resources */,
+				AC408F6520E8377100367702 /* SettingsSegmentTableViewCell.xib in Resources */,
 				ACCD863620D15B68005C30C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACB2514620D6E5A3003B2E14 /* ForecastViewModel.swift in Sources */,
+				AC408F6720E83C9A00367702 /* SettingsViewModel.swift in Sources */,
 				AC74525D20D7199200A070FE /* APIService.swift in Sources */,
 				ACED799B20E6C3A3007111A1 /* SettingsViewController.swift in Sources */,
 				ACD49E3120D1D469000C853E /* Coordinator.swift in Sources */,
@@ -443,7 +473,9 @@
 				AC18A61020D1EAAC00EEBD89 /* CitiesListCoordinator.swift in Sources */,
 				AC44D0C920DDB1EF0082B2B5 /* City.swift in Sources */,
 				ACCD863920D15B68005C30C4 /* weather_demo.xcdatamodeld in Sources */,
+				ACACF83920E847F000960EE7 /* Settings.swift in Sources */,
 				AC34218A20D3113E00ED98EB /* CitySelectionViewController.swift in Sources */,
+				AC408F6420E8377100367702 /* SettingsSegmentTableViewCell.swift in Sources */,
 				ACD9D0FE20E04A7100BCC9EA /* Weather.swift in Sources */,
 				ACCD863120D15B68005C30C4 /* AppDelegate.swift in Sources */,
 				ACD9D10920E0630C00BCC9EA /* DefaultEnvironment.swift in Sources */,

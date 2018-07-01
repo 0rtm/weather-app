@@ -48,6 +48,7 @@ class CitiesListCoordinator {
     fileprivate var settingsNC: UINavigationController {
         let settingsVC = storyboard.instantiateViewController(withIdentifier: "settingsVC") as! SettingsViewController
         settingsVC.delegate = self
+        settingsVC.viewModel = SettingsViewModel()
 
         let nav = UINavigationController()
         nav.viewControllers = [settingsVC]

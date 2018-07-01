@@ -16,9 +16,14 @@ class SettingsViewController: UIViewController {
 
     weak var delegate: SettingsControllerDelegate? = nil
 
+    var viewModel: SettingsViewModel? = nil
+
+    @IBOutlet fileprivate weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupTableView()
     }
 
     fileprivate func setupNavigationBar() {
@@ -27,6 +32,15 @@ class SettingsViewController: UIViewController {
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.leftBarButtonItem = cancelButton
+    }
+
+    fileprivate func setupTableView() {
+
+        tableView.register(SettingsSegmentTableViewCell.nib,
+                           forCellReuseIdentifier: SettingsSegmentTableViewCell.reuseIdentifier)
+
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
     @objc
@@ -38,5 +52,35 @@ class SettingsViewController: UIViewController {
     fileprivate func cancel() {
         delegate?.done()
     }
+
+}
+
+extension SettingsViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel?.AvaliableSettings.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.AvaliableSettings[section].settings.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsSegmentTableViewCell.reuseIdentifier, for: indexPath) as! SettingsSegmentTableViewCell
+
+        if let setting = viewModel?.AvaliableSettings[indexPath.section].settings[indexPath.row] {
+            cell.configure(for: setting)
+        }
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SettingsSegmentTableViewCell.defaultHeight
+    }
+}
+
+extension SettingsViewController: UITableViewDelegate {
 
 }

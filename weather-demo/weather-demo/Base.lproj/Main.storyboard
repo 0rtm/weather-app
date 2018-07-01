@@ -126,10 +126,25 @@
                     <view key="view" contentMode="scaleToFill" id="7AS-U9-aEs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="qLF-Lq-1lm">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eQU-qD-2Fb" firstAttribute="trailing" secondItem="qLF-Lq-1lm" secondAttribute="trailing" id="UnN-Kf-4dz"/>
+                            <constraint firstItem="eQU-qD-2Fb" firstAttribute="bottom" secondItem="qLF-Lq-1lm" secondAttribute="bottom" id="Ut7-yz-7kU"/>
+                            <constraint firstItem="qLF-Lq-1lm" firstAttribute="leading" secondItem="eQU-qD-2Fb" secondAttribute="leading" id="hiN-I1-crQ"/>
+                            <constraint firstItem="qLF-Lq-1lm" firstAttribute="top" secondItem="eQU-qD-2Fb" secondAttribute="top" id="kuz-Lg-5fE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eQU-qD-2Fb"/>
                     </view>
                     <navigationItem key="navigationItem" id="42i-Db-t28"/>
+                    <connections>
+                        <outlet property="tableView" destination="qLF-Lq-1lm" id="DUd-ba-99p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aD2-N8-alg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
