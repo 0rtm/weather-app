@@ -89,7 +89,7 @@ extension SettingsViewController: UITableViewDelegate {
 // TODO: consider moving to view model
 extension SettingsViewController: SegmentCellDelegate {
 
-    func selectionChanged(setting: SegmentedSetting, selectedOption option: SegmentedOption){
-        viewModel?.selectionChanged(setting: setting, selectedOption: option)
+    func selectionChanged(setting: SegmentedSetting, selectedIndex index: Int){
+        viewModel?.selectionChanged(setting: setting, selectedIndex: index)
     }
 }

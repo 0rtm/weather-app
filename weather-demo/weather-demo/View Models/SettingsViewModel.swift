@@ -24,23 +24,13 @@ struct SectionedSetting {
     let settings: [Setting]
 }
 
-struct SegmentedSetting {
+protocol SegmentedSetting {
 
-    let title: String
-    let storingKey: String
-    let options: [SegmentedOption]
+    var title: String {get}
+    var options: [SegmentedOption] {get}
+    var selectedIndex: Int? { get }
+    func setSelectedIndex(index: Int)
 
-    func select(option: SegmentedOption) {
-        //TODO: move out of here and properly inject
-        UserDefaults.standard.set(option.storageValue, forKey: storingKey)
-    }
-
-    func selectedOptionIndex() -> Array<SegmentedOption>.Index? {
-        guard let value = UserDefaults.standard.value(forKey: storingKey) as? String else {
-            return nil
-        }
-        return options.index(where: { $0.storageValue == value})
-    }
 }
 
 struct ToggleSetting {
@@ -60,40 +50,13 @@ struct ButtonSetting {
     }
 }
 
-//enum SegmentedSetting {
-//    case temperature
-//    case windSpeed
-//
-//    var title: String {
-//        switch self {
-//        case .temperature:
-//            return "Temperature"
-//        case .windSpeed:
-//            return "Wind Speed"
-//        }
-//    }
-//
-//    var options: [String] {
-//        switch self {
-//        case .temperature:
-//            return ["Celsius", ]
-//        case .windSpeed:
-//            return ["m/s", "km/h", "mp/h"]
-//        }
-//    }
-//}
-
 protocol SegmentedOption {
     var title: String {get}
-
-    var storageValue: String {get}
-
-    func saveSelection(option: SegmentedOption)
 }
 
-enum TemperatureOption: SegmentedOption {
-    case celsius
-    case fahrenheit
+
+
+extension TemperatureSetting: SegmentedOption {
 
     var title: String {
         switch self {
@@ -104,16 +67,10 @@ enum TemperatureOption: SegmentedOption {
         }
     }
 
-    var storageValue: String {
-        return title
-    }
+    static let all: [TemperatureSetting] = [.celsius, .fahrenheit]
 
-    func saveSelection(option: SegmentedOption) {
-
-    }
-
-    static let all: [TemperatureOption] = [.celsius, .fahrenheit]
 }
+
 
 enum WindSpeedOption: SegmentedOption {
 
@@ -136,52 +93,103 @@ enum WindSpeedOption: SegmentedOption {
         return title
     }
 
-    func saveSelection(option: SegmentedOption) {
-        print("will save")
-    }
-
     static let all: [WindSpeedOption] = [.ms, .kmh, .mph]
 }
 
 
-struct TemperatureSetting {
+//enum UnitSettings: SegmentedSetting {
+//
+//    case temperature
+//    case windSpeed
+//
+//    var title: String {
+//        switch self {
+//        case .temperature:
+//            return "Temperature"
+//        case .windSpeed:
+//            return "Wind speed"
+//        }
+//    }
+//
+//    var options: [SegmentedOption] {
+//        switch self {
+//        case .temperature:
+//            return TemperatureSetting.all
+//        case .windSpeed:
+//            return WindSpeedOption.all
+//        }
+//    }
+//
+//    static let all:[UnitSettings] = [.temperature, .windSpeed]
+//}
 
-    let options = TemperatureOption.all
-
-    var selectedOption: SegmentedOption {
-        return options.first!
-    }
-
+enum AllSettings {
+    case temperature
+    case windSpeed
 }
 
+struct UnitSetting: SegmentedSetting {
+
+    func setSelectedIndex(index: Int) {
+
+        switch option {
+        case .temperature:
+            // TODO: fix
+            settings.temperature = options[index] as! TemperatureSetting
+        default:
+            return
+        }
+    }
+
+    var selectedIndex: Int? {
+        switch option {
+        case .temperature:
+            let tmp = settings.temperature
+            // TODO: make without string compare
+            return options.index(where: {$0.title == tmp.title})
+        default:
+            return 1
+        }
+    }
+
+    let title: String
+
+    let option: AllSettings
+
+    let options: [SegmentedOption]
+
+    unowned let settings: Settings
+
+
+}
 
 class SettingsViewModel {
 
     let avaliableSettings:[SectionedSetting]
 
-    let settings = Settings()
+    let settings: Settings
 
     init () {
 
-        let temperatureSettings = SegmentedSetting(title: "Temperature",
-                                                   storingKey: "com.tselikov.weather.temperatureUnits",
-                                                   options: TemperatureOption.all)
+        settings = Settings(defaults: UserDefaults.standard)!
 
-        let windSpeedSetting = SegmentedSetting(title: "Wind speed",
-                                                storingKey: "com.tselikov.weather.windSpeedUnits",
-                                                options: WindSpeedOption.all)
+        let tempS = UnitSetting(title: "Temperature", option: .temperature, options: TemperatureSetting.all, settings: settings)
 
-        let uSettings:[Setting] = [.segment(setting: temperatureSettings), .segment(setting: windSpeedSetting)]
+        let uSettings: [Setting] = [Setting.segment(setting: tempS)]//UnitSettings.all.map({ .segment(setting: $0) })
 
         let unitsSection = SectionedSetting(title: "Units", settings: uSettings)
 
         avaliableSettings = [unitsSection]
     }
 
-    func selectionChanged(setting: SegmentedSetting, selectedOption option: SegmentedOption) {
+    func selectionChanged(setting: SegmentedSetting, selectedIndex index: Int) {
         // save selection
         // render view
-        setting.select(option: option)
+
+        setting.setSelectedIndex(index: index)
+
+        //settings?.temperature =
+
         // render ?
     }
     
