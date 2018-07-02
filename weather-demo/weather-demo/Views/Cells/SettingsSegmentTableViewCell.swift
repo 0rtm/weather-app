@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SegmentCellDelegate: class {
-    func selectionChanged(to: SegmentedOption)
+    func selectionChanged(setting: SegmentedSetting, selectedOption option: SegmentedOption)
 }
 
 class SettingsSegmentTableViewCell: UITableViewCell {
@@ -33,11 +33,22 @@ class SettingsSegmentTableViewCell: UITableViewCell {
         setting = nil
     }
 
-    func configure(for setting: SegmentedSetting) {
+    func configure(for setting: Setting) {
 
+        switch setting {
+        case .segment(let s):
+            configure(for: s)
+        default:
+            return
+        }
+    }
+
+    fileprivate func configure(for setting: SegmentedSetting) {
         self.setting = setting
 
         titleLabel.text = setting.title
+
+        let selectedIndex = setting.selectedOptionIndex()
 
         for (index, option) in setting.options.enumerated() {
 
@@ -46,15 +57,20 @@ class SettingsSegmentTableViewCell: UITableViewCell {
             } else {
                 segmentControl.insertSegment(withTitle: option.title, at: index, animated: false)
             }
+
+            if index == selectedIndex {
+                segmentControl.selectedSegmentIndex = index
+            }
         }
     }
+    
 
     @IBAction func selectionChanged(_ sender: Any) {
         guard let _setting = setting else {
             return
         }
 
-        delegate?.selectionChanged(to: _setting.options[segmentControl.selectedSegmentIndex])
+        delegate?.selectionChanged(setting: _setting, selectedOption: _setting.options[segmentControl.selectedSegmentIndex])
     }
 
 }

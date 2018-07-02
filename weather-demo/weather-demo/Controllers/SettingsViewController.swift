@@ -58,19 +58,20 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.AvaliableSettings.count ?? 0
+        return viewModel?.avaliableSettings.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.AvaliableSettings[section].settings.count ?? 0
+        return viewModel?.avaliableSettings[section].settings.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingsSegmentTableViewCell.reuseIdentifier, for: indexPath) as! SettingsSegmentTableViewCell
 
-        if let setting = viewModel?.AvaliableSettings[indexPath.section].settings[indexPath.row] {
+        if let setting = viewModel?.avaliableSettings[indexPath.section].settings[indexPath.row] {
             cell.configure(for: setting)
+            cell.delegate = self
         }
 
         return cell
@@ -83,4 +84,12 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
 
+}
+
+// TODO: consider moving to view model
+extension SettingsViewController: SegmentCellDelegate {
+
+    func selectionChanged(setting: SegmentedSetting, selectedOption option: SegmentedOption){
+        viewModel?.selectionChanged(setting: setting, selectedOption: option)
+    }
 }
